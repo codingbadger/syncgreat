@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SyncGreat — Simple, Powerful Connectors for Your Everyday Workflows</title>
+    <meta name="description" content="SyncGreat builds single‑purpose connectors that do one job perfectly. MVP: Stripe → Google Sheets Payout Tracker. Set it and forget it—no Zapier required.">
+    <meta property="og:title" content="SyncGreat — Simple, Powerful Connectors" />
+    <meta property="og:description" content="Start with Stripe → Google Sheets Payout Tracker. Your payouts, fees, and net—auto‑synced daily. HMRC‑friendly. No Zapier required." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://syncgreat.com" />
+    <meta property="og:image" content="https://syncgreat.com/og.png" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔗</text></svg>">
+    <!-- Tailwind JIT CDN (good enough for a static page on GH Pages) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50:  '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1', // primary
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81'
+                        },
+                        ink: '#0B132B',
+                        mist: '#F7F7FB',
+                    },
+                    boxShadow: {
+                        soft: '0 10px 25px rgba(0,0,0,0.06)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scroll */
+        html{ scroll-behavior:smooth }
+        /* Gradient grid background */
+        .bg-grid {
+            background-image: linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+            background-size: 22px 22px;
+        }
+    </style>
+</head>
+<body class="bg-mist text-ink antialiased">
+<!-- Top bar -->
+<header class="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-black/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+            <!-- Simple logomark -->
+            <span class="relative inline-grid place-items-center w-9 h-9 rounded-2xl bg-brand-500 text-white shadow-soft">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13a5 5 0 0 1-5 5"></path><path d="M6 11a5 5 0 0 1 5-5"></path><path d="M7 17l10-10"></path></svg>
+        </span>
+            <span class="text-xl font-semibold tracking-tight">SyncGreat</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+            <a href="#how" class="hover:text-brand-600">How it works</a>
+            <a href="#features" class="hover:text-brand-600">Features</a>
+            <a href="#pricing" class="hover:text-brand-600">Pricing</a>
+            <a href="#faq" class="hover:text-brand-600">FAQ</a>
+            <a href="#waitlist" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 shadow-soft">Join waitlist</a>
+        </nav>
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-black/5" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-black/5">
+        <div class="px-4 py-3 space-y-2">
+            <a href="#how" class="block py-2">How it works</a>
+            <a href="#features" class="block py-2">Features</a>
+            <a href="#pricing" class="block py-2">Pricing</a>
+            <a href="#faq" class="block py-2">FAQ</a>
+            <a href="#waitlist" class="block py-2 font-medium text-white bg-brand-600 rounded-xl text-center">Join waitlist</a>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <span class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-brand-100 text-brand-700 ring-1 ring-brand-200">MVP live soon</span>
+                <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight">
+                    Single‑purpose connectors that <span class="text-brand-600">do one job perfectly</span>.
+                </h1>
+                <p class="mt-4 text-lg text-black/70 max-w-xl">
+                    Start with <strong>Stripe → Google Sheets Payout Tracker</strong>: your payouts, fees, and net automatically synced into a clean, HMRC‑friendly sheet. No Zapier. No scripts. Just switch on and go.
+                </p>
+                <div class="mt-6 flex flex-col sm:flex-row gap-3">
+                    <a href="#waitlist" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 text-white font-medium shadow-soft hover:bg-brand-700">Join the waitlist</a>
+                    <a href="#live-demo" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white ring-1 ring-black/10 hover:ring-black/20">See the template sheet</a>
+                </div>
+                <div class="mt-6 flex items-center gap-6 text-sm text-black/60">
+                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Read‑only Stripe scopes</div>
+                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Data lands in your Drive</div>
+                </div>
+            </div>
+            <!-- Product mock -->
+            <div class="relative">
+                <div class="relative rounded-2xl bg-white shadow-soft ring-1 ring-black/5 overflow-hidden">
+                    <div class="px-6 py-4 border-b border-black/5 flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <span class="ml-2 text-sm text-black/60">Stripe → Google Sheet</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div class="bg-mist rounded-xl p-4 ring-1 ring-black/5">
+                                <div class="text-sm font-medium mb-2">Source: Stripe</div>
+                                <ul class="text-sm text-black/70 space-y-2">
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Payouts & fees</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Balance transactions</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Webhook‑driven</li>
+                                </ul>
+                            </div>
+                            <div class="bg-mist rounded-xl p-4 ring-1 ring-black/5">
+                                <div class="text-sm font-medium mb-2">Destination: Google Sheets</div>
+                                <ul class="text-sm text-black/70 space-y-2">
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Clean columns & totals</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Idempotent upserts</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Lives in your Drive</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <div class="text-xs uppercase tracking-wide text-black/50 mb-2">Preview</div>
+                            <div class="rounded-xl ring-1 ring-black/5 overflow-x-auto">
+                                <table class="min-w-full text-sm">
+                                    <thead class="bg-mist text-black/70">
+                                    <tr>
+                                        <th class="text-left px-4 py-2">Date</th>
+                                        <th class="text-left px-4 py-2">Payout ID</th>
+                                        <th class="text-right px-4 py-2">Gross</th>
+                                        <th class="text-right px-4 py-2">Fees</th>
+                                        <th class="text-right px-4 py-2">Net</th>
+                                        <th class="text-left px-4 py-2">Status</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="border-t border-black/5">
+                                        <td class="px-4 py-2">2025‑09‑06</td>
+                                        <td class="px-4 py-2">po_1XXXX</td>
+                                        <td class="px-4 py-2 text-right">£1,245.80</td>
+                                        <td class="px-4 py-2 text-right">£38.10</td>
+                                        <td class="px-4 py-2 text-right">£1,207.70</td>
+                                        <td class="px-4 py-2">Paid</td>
+                                    </tr>
+                                    <tr class="border-t border-black/5">
+                                        <td class="px-4 py-2">2025‑09‑04</td>
+                                        <td class="px-4 py-2">po_1YYYY</td>
+                                        <td class="px-4 py-2 text-right">£842.10</td>
+                                        <td class="px-4 py-2 text-right">£25.30</td>
+                                        <td class="px-4 py-2 text-right">£816.80</td>
+                                        <td class="px-4 py-2">Paid</td>
+                                    </tr>
+                                    <tr class="border-t border-black/5">
+                                        <td class="px-4 py-2">2025‑09‑01</td>
+                                        <td class="px-4 py-2">po_1ZZZZ</td>
+                                        <td class="px-4 py-2 text-right">£2,014.50</td>
+                                        <td class="px-4 py-2 text-right">£61.20</td>
+                                        <td class="px-4 py-2 text-right">£1,953.30</td>
+                                        <td class="px-4 py-2">Paid</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<section id="how" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-3 gap-8 items-start">
+            <div>
+                <h2 class="text-3xl font-bold">How it works</h2>
+                <p class="mt-3 text-black/70">Connect your Stripe and Google accounts, choose the template, and pick a schedule. We handle webhooks, retries, and idempotent upserts so your sheet stays clean.</p>
+            </div>
+            <div class="lg:col-span-2 grid sm:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl shadow-soft ring-1 ring-black/5 p-6">
+                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 grid place-items-center mb-3">
+                        1
+                    </div>
+                    <h3 class="font-semibold">Connect</h3>
+                    <p class="text-sm text-black/70 mt-1">OAuth to Stripe (read‑only) and Google (drive.file & spreadsheets).</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-soft ring-1 ring-black/5 p-6">
+                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 grid place-items-center mb-3">2</div>
+                    <h3 class="font-semibold">Choose</h3>
+                    <p class="text-sm text-black/70 mt-1">Pick “Payout Tracker” template or customise columns and filters.</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-soft ring-1 ring-black/5 p-6">
+                    <div class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 grid place-items-center mb-3">3</div>
+                    <h3 class="font-semibold">Sync</h3>
+                    <p class="text-sm text-black/70 mt-1">Webhook‑driven updates with retry & dedupe. Your sheet stays tidy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">No Zapier required</h3>
+                <p class="text-sm text-black/70 mt-1">Purpose‑built connector—faster, cheaper, and easier than generic automation tools.</p>
+            </div>
+            <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">Idempotent upserts</h3>
+                <p class="text-sm text-black/70 mt-1">We use stable IDs to avoid duplicates and keep your sheet pristine.</p>
+            </div>
+            <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">Your data, your Drive</h3>
+                <p class="text-sm text-black/70 mt-1">We only request <code>drive.file</code>—files live in your Google Drive, not ours.</p>
+            </div>
+            <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">HMRC‑friendly</h3>
+                <p class="text-sm text-black/70 mt-1">Columns for gross, fees, net, payout date, status, and running totals.</p>
+            </div>
+            <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">Webhooks + retries</h3>
+                <p class="text-sm text-black/70 mt-1">Fast updates, exponential backoff, and a visible run log.</p>
+            </div>
+            <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">Simple pricing</h3>
+                <p class="text-sm text-black/70 mt-1">Free to start. Upgrade only when you need more connections or frequency.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Live demo / template link placeholder -->
+<section id="live-demo" class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold">See the Sheet you’ll get</h2>
+        <p class="mt-3 text-black/70">A clean, ready‑to‑use Google Sheet with the columns accountants actually want. Duplicate it and you’re ready when the connector goes live.</p>
+        <a href="#" class="inline-flex items-center justify-center mt-6 px-6 py-3 rounded-xl bg-white ring-1 ring-black/10 hover:ring-black/20">Open template (coming soon)</a>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold">Pricing that scales with you</h2>
+            <p class="mt-3 text-black/70">Start free. Upgrade for more connections, faster syncs, and higher row limits.</p>
+        </div>
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+            <div class="rounded-2xl ring-1 ring-black/5 p-6 bg-mist">
+                <h3 class="text-lg font-semibold">Free</h3>
+                <div class="mt-2 text-3xl font-extrabold">£0</div>
+                <p class="text-sm text-black/60">forever</p>
+                <ul class="mt-4 text-sm space-y-2">
+                    <li>• 1 connection</li>
+                    <li>• Daily sync</li>
+                    <li>• Up to 1,000 new rows / month</li>
+                    <li>• Email support</li>
+                </ul>
+                <a href="#waitlist" class="mt-6 inline-flex px-4 py-2 rounded-lg bg-white ring-1 ring-black/10 hover:ring-black/20">Join waitlist</a>
+            </div>
+            <div class="rounded-2xl ring-2 ring-brand-600 p-6 bg-white shadow-soft">
+                <h3 class="text-lg font-semibold">Pro</h3>
+                <div class="mt-2 text-3xl font-extrabold">£15</div>
+                <p class="text-sm text-black/60">per month</p>
+                <ul class="mt-4 text-sm space-y-2">
+                    <li>• Up to 5 connections</li>
+                    <li>• Hourly sync</li>
+                    <li>• 50k new rows / month</li>
+                    <li>• Priority support</li>
+                </ul>
+                <a href="#waitlist" class="mt-6 inline-flex px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700">Join waitlist</a>
+            </div>
+            <div class="rounded-2xl ring-1 ring-black/5 p-6 bg-white">
+                <h3 class="text-lg font-semibold">Business</h3>
+                <div class="mt-2 text-3xl font-extrabold">Let’s talk</div>
+                <p class="text-sm text-black/60">invoicing available</p>
+                <ul class="mt-4 text-sm space-y-2">
+                    <li>• Unlimited connections</li>
+                    <li>• 5‑minute sync</li>
+                    <li>• SSO & audit logs</li>
+                    <li>• Onboarding help</li>
+                </ul>
+                <a href="#waitlist" class="mt-6 inline-flex px-4 py-2 rounded-lg bg-white ring-1 ring-black/10 hover:ring-black/20">Join waitlist</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center">FAQ</h2>
+        <div class="mt-10 grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-2xl p-6 ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">Do you store my Stripe data?</h3>
+                <p class="text-sm text-black/70 mt-1">Minimal metadata for run logs and dedupe only. Payout line items go straight from Stripe → your Google Sheet. Tokens are encrypted. You can revoke access anytime.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">Do I need Zapier?</h3>
+                <p class="text-sm text-black/70 mt-1">No. SyncGreat is a purpose‑built connector—lighter, cheaper, and easier to set up.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">What permissions do you request?</h3>
+                <p class="text-sm text-black/70 mt-1">Stripe: read‑only for payouts/balance transactions. Google: <code>drive.file</code> and <code>spreadsheets</code> (only files we create or you pick).</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 ring-1 ring-black/5 shadow-soft">
+                <h3 class="font-semibold">What will it cost?</h3>
+                <p class="text-sm text-black/70 mt-1">There’s a generous Free tier. Pro is expected at ~£15/mo. Business plans for teams and higher volumes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Waitlist -->
+<section id="waitlist" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl p-8 ring-1 ring-black/5 shadow-soft">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold">Get early access</h2>
+                    <p class="text-black/70 mt-1">Join the waitlist and we’ll send the template + invite as soon as we open the doors.</p>
+                </div>
+                <div class="flex-1">
+                    <form id="waitlistForm" action="https://formspree.io/f/mzzayweo" method="POST" class="mt-4 md:mt-0 flex flex-col gap-3 w-full">
+                        <div class="flex gap-3">
+                            <input type="text" name="first_name" required placeholder="First name" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
+                            <input type="text" name="last_name" required placeholder="Last name" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
+                        </div>
+                        <div class="flex gap-3">
+                            <input type="email" name="email" required placeholder="you@company.com" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
+                            <button type="submit" class="px-5 py-3 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700">Join</button>
+                        </div>
+                    </form>
+                    <p id="formMsg" class="text-sm mt-2"></p>
+                    <p class="text-xs text-black/50 mt-2">By joining, you agree to receive occasional product updates. No spam.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2 text-sm text-black/60">
+                <span>&copy; <span id="year"></span> SyncGreat Ltd.</span>
+                <span class="hidden sm:inline">•</span>
+                <a href="#" class="hover:text-brand-600">Privacy</a>
+                <span>•</span>
+                <a href="#" class="hover:text-brand-600">Terms</a>
+            </div>
+            <div class="text-sm text-black/60">Built in the UK 🇬🇧</div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
