@@ -412,6 +412,14 @@ if (response.ok) {
 msg.textContent = "✅ Thanks! You're on the waitlist.";
 msg.className = "text-sm mt-2 text-emerald-600";
 form.reset();
+
+    // GA4 conversion event
+  gtag('event', 'waitlist_signup', {
+    'event_category': 'engagement',
+    'event_label': 'SyncGreat Waitlist',
+    'value': 1
+  });
+    
 } else {
 msg.textContent = "❌ Something went wrong. Please try again.";
 msg.className = "text-sm mt-2 text-rose-600";
@@ -433,6 +441,7 @@ msg.className = "text-sm mt-2 text-rose-600";
 </script>
 </body>
 </html>
+
 
 
 
