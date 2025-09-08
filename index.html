@@ -41,21 +41,21 @@
         }
     </script>
 
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2B6Q1EQVD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-    // GA4
-  gtag('config', 'G-Z2B6Q1EQVD');
-    //Google Ads
-  gtag('config', 'AW-17542339029');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2B6Q1EQVD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    
+        // GA4
+        gtag('config', 'G-Z2B6Q1EQVD');
+        //Google Ads
+        gtag('config', 'AW-17542339029');
+    </script>
+
+
     <style>
         /* Smooth scroll */
         html{ scroll-behavior:smooth }
@@ -103,89 +103,101 @@
 <!-- Hero -->
 <section class="relative overflow-hidden">
     <div class="absolute inset-0 bg-grid"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center">
+            <!-- Text -->
+            <div class="order-1">
                 <span class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-brand-100 text-brand-700 ring-1 ring-brand-200">MVP live soon</span>
-                <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold leading-tight">
-                    Single‑purpose connectors that <span class="text-brand-600">do one job perfectly</span>.
+                <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
+                    Single-purpose connectors that <span class="text-brand-600">do one job perfectly</span>.
                 </h1>
-                <p class="mt-4 text-lg text-black/70 max-w-xl">
-                    Start with <strong>Stripe → Google Sheets Payout Tracker</strong>: your payouts, fees, and net automatically synced into a clean, HMRC‑friendly sheet. No Zapier. No scripts. Just switch on and go.
+                <p class="mt-3 sm:mt-4 text-base sm:text-lg text-black/70 max-w-xl">
+                    Start with <strong>Stripe → Google Sheets Payout Tracker</strong>: your payouts, fees, and net automatically synced into a clean, HMRC-friendly sheet. No Zapier. No scripts. Just switch on and go.
                 </p>
-                <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                    <a href="#waitlist" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 text-white font-medium shadow-soft hover:bg-brand-700">Join the waitlist</a>
-                    <a href="#live-demo" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white ring-1 ring-black/10 hover:ring-black/20">See the template sheet</a>
+
+                <!-- Buttons: full width on mobile -->
+                <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3">
+                    <a href="#waitlist" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 text-white font-medium shadow-soft hover:bg-brand-700 w-full sm:w-auto">
+                        Join the waitlist
+                    </a>
+                    <a href="#live-demo" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white ring-1 ring-black/10 hover:ring-black/20 w-full sm:w-auto">
+                        See the template sheet
+                    </a>
                 </div>
-                <div class="mt-6 flex items-center gap-6 text-sm text-black/60">
-                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Read‑only Stripe scopes</div>
+
+                <!-- Trust bullets: wrap on small -->
+                <div class="mt-5 sm:mt-6 flex flex-wrap items-center gap-4 text-sm text-black/60">
+                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Read-only Stripe scopes</div>
                     <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Data lands in your Drive</div>
                 </div>
             </div>
-            <!-- Product mock -->
-            <div class="relative">
+
+            <!-- Mock (moved below on mobile, contained) -->
+            <div class="order-2">
                 <div class="relative rounded-2xl bg-white shadow-soft ring-1 ring-black/5 overflow-hidden">
-                    <div class="px-6 py-4 border-b border-black/5 flex items-center gap-3">
+                    <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-black/5 flex items-center gap-3 text-sm">
                         <span class="w-2 h-2 rounded-full bg-rose-400"></span>
                         <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        <span class="ml-2 text-sm text-black/60">Stripe → Google Sheet</span>
+                        <span class="ml-1 sm:ml-2 text-black/60 truncate">Stripe → Google Sheet</span>
                     </div>
-                    <div class="p-6">
-                        <div class="grid sm:grid-cols-2 gap-6">
-                            <div class="bg-mist rounded-xl p-4 ring-1 ring-black/5">
-                                <div class="text-sm font-medium mb-2">Source: Stripe</div>
-                                <ul class="text-sm text-black/70 space-y-2">
+                    <div class="p-4 sm:p-6">
+                        <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                            <div class="bg-mist rounded-xl p-3 sm:p-4 ring-1 ring-black/5">
+                                <div class="text-sm font-medium mb-1.5 sm:mb-2">Source: Stripe</div>
+                                <ul class="text-sm text-black/70 space-y-1.5">
                                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Payouts & fees</li>
                                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Balance transactions</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Webhook‑driven</li>
+                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Webhook-driven</li>
                                 </ul>
                             </div>
-                            <div class="bg-mist rounded-xl p-4 ring-1 ring-black/5">
-                                <div class="text-sm font-medium mb-2">Destination: Google Sheets</div>
-                                <ul class="text-sm text-black/70 space-y-2">
+                            <div class="bg-mist rounded-xl p-3 sm:p-4 ring-1 ring-black/5">
+                                <div class="text-sm font-medium mb-1.5 sm:mb-2">Destination: Google Sheets</div>
+                                <ul class="text-sm text-black/70 space-y-1.5">
                                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Clean columns & totals</li>
                                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Idempotent upserts</li>
                                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Lives in your Drive</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="mt-6">
+
+                        <!-- Responsive table: horizontal scroll + hide 1 col on XS -->
+                        <div class="mt-4 sm:mt-6">
                             <div class="text-xs uppercase tracking-wide text-black/50 mb-2">Preview</div>
-                            <div class="rounded-xl ring-1 ring-black/5 overflow-x-auto">
-                                <table class="min-w-full text-sm">
+                            <div class="rounded-xl ring-1 ring-black/5 overflow-x-auto -mx-2 sm:mx-0">
+                                <table class="min-w-[560px] sm:min-w-full text-sm">
                                     <thead class="bg-mist text-black/70">
                                     <tr>
                                         <th class="text-left px-4 py-2">Date</th>
                                         <th class="text-left px-4 py-2">Payout ID</th>
                                         <th class="text-right px-4 py-2">Gross</th>
-                                        <th class="text-right px-4 py-2">Fees</th>
+                                        <th class="text-right px-4 py-2 hidden xs:table-cell sm:table-cell">Fees</th>
                                         <th class="text-right px-4 py-2">Net</th>
                                         <th class="text-left px-4 py-2">Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr class="border-t border-black/5">
-                                        <td class="px-4 py-2">2025‑09‑06</td>
+                                        <td class="px-4 py-2">2025-09-06</td>
                                         <td class="px-4 py-2">po_1XXXX</td>
                                         <td class="px-4 py-2 text-right">£1,245.80</td>
-                                        <td class="px-4 py-2 text-right">£38.10</td>
+                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£38.10</td>
                                         <td class="px-4 py-2 text-right">£1,207.70</td>
                                         <td class="px-4 py-2">Paid</td>
                                     </tr>
                                     <tr class="border-t border-black/5">
-                                        <td class="px-4 py-2">2025‑09‑04</td>
+                                        <td class="px-4 py-2">2025-09-04</td>
                                         <td class="px-4 py-2">po_1YYYY</td>
                                         <td class="px-4 py-2 text-right">£842.10</td>
-                                        <td class="px-4 py-2 text-right">£25.30</td>
+                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£25.30</td>
                                         <td class="px-4 py-2 text-right">£816.80</td>
                                         <td class="px-4 py-2">Paid</td>
                                     </tr>
                                     <tr class="border-t border-black/5">
-                                        <td class="px-4 py-2">2025‑09‑01</td>
+                                        <td class="px-4 py-2">2025-09-01</td>
                                         <td class="px-4 py-2">po_1ZZZZ</td>
                                         <td class="px-4 py-2 text-right">£2,014.50</td>
-                                        <td class="px-4 py-2 text-right">£61.20</td>
+                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£61.20</td>
                                         <td class="px-4 py-2 text-right">£1,953.30</td>
                                         <td class="px-4 py-2">Paid</td>
                                     </tr>
@@ -193,12 +205,15 @@
                                 </table>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
 
 <!-- How it works -->
 <section id="how" class="py-20">
@@ -346,23 +361,29 @@
 </section>
 
 <!-- Waitlist -->
-<section id="waitlist" class="py-20 bg-white">
+<section id="waitlist" class="py-16 sm:py-20 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="rounded-2xl p-8 ring-1 ring-black/5 shadow-soft">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                    <h2 class="text-2xl font-bold">Get early access</h2>
-                    <p class="text-black/70 mt-1">Join the waitlist and we’ll send the template + invite as soon as we open the doors.</p>
+        <div class="rounded-2xl p-6 sm:p-8 ring-1 ring-black/5 shadow-soft">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                <div class="md:max-w-sm">
+                    <h2 class="text-2xl sm:text-3xl font-bold">Get early access</h2>
+                    <p class="text-black/70 mt-1 sm:mt-2 text-sm sm:text-base">
+                        Join the waitlist and we’ll send the template + invite as soon as we open the doors.
+                    </p>
                 </div>
-                <div class="flex-1">
-                    <form id="waitlistForm" action="https://formspree.io/f/mzzayweo" method="POST" class="mt-4 md:mt-0 flex flex-col gap-3 w-full">
-                        <div class="flex gap-3">
+
+                <!-- Form: stacked on mobile, side-by-side on sm+ -->
+                <div class="flex-1 w-full">
+                    <form id="waitlistForm" action="https://formspree.io/f/mzzayweo" method="POST" class="mt-2 sm:mt-0 flex flex-col gap-3 w-full">
+                        <div class="flex flex-col sm:flex-row gap-3">
                             <input type="text" name="first_name" required placeholder="First name" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
                             <input type="text" name="last_name" required placeholder="Last name" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
                         </div>
-                        <div class="flex gap-3">
+                        <div class="flex flex-col sm:flex-row gap-3">
                             <input type="email" name="email" required placeholder="you@company.com" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
-                            <button type="submit" class="px-5 py-3 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700">Join</button>
+                            <button type="submit" class="px-5 py-3 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700 w-full sm:w-auto">
+                                Join
+                            </button>
                         </div>
                     </form>
                     <p id="formMsg" class="text-sm mt-2"></p>
@@ -372,6 +393,7 @@
         </div>
     </div>
 </section>
+
 <!-- Footer -->
 <footer class="py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -388,58 +410,58 @@
     </div>
 </footer>
 
-    <script>
-// Mobile menu toggle
-const btn = document.getElementById('mobileMenuBtn');
-const menu = document.getElementById('mobileMenu');
-btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
-// Year
-document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+    // Mobile menu toggle
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
 
-// Form handling
-const form = document.getElementById('waitlistForm');
-const msg = document.getElementById('formMsg');
-form.addEventListener('submit', async (e) => {
-e.preventDefault();
-msg.textContent = "Submitting...";
-msg.className = "text-sm mt-2 text-black/60";
-try {
-const data = new FormData(form);
-const response = await fetch(form.action, {
-method: form.method,
-body: data,
-headers: { 'Accept': 'application/json' }
-});
-if (response.ok) {
-msg.textContent = "✅ Thanks! You're on the waitlist.";
-msg.className = "text-sm mt-2 text-emerald-600";
-form.reset();
+    // Form handling
+    const form = document.getElementById('waitlistForm');
+    const msg = document.getElementById('formMsg');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msg.textContent = "Submitting...";
+        msg.className = "text-sm mt-2 text-black/60";
+        try {
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                msg.textContent = "✅ Thanks! You're on the waitlist.";
+                msg.className = "text-sm mt-2 text-emerald-600";
+                form.reset();
 
-    // GA4 conversion event
-  gtag('event', 'waitlist_signup', {
-    'event_category': 'engagement',
-    'event_label': 'SyncGreat Waitlist',
-    'value': 1
-  });
-    //GA4
-  gtag('event', 'conversion', {'send_to': 'AW-17542339029/PiqwCNGX55YbENWz66xB'});
+                // GA4 conversion event
+                gtag('event', 'waitlist_signup', {
+                    'event_category': 'engagement',
+                    'event_label': 'SyncGreat Waitlist',
+                    'value': 1
+                });
+                //GA4
+                gtag('event', 'conversion', {'send_to': 'AW-17542339029/PiqwCNGX55YbENWz66xB'});
 
-gtag('event', 'conversion', {
-  'send_to': 'AW-17542339029/znXdCPGZ-JYbENWz66xB'
-});
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-17542339029/znXdCPGZ-JYbENWz66xB'
+                });
 
 
-    
-} else {
-msg.textContent = "❌ Something went wrong. Please try again.";
-msg.className = "text-sm mt-2 text-rose-600";
-}
-} catch (error) {
-msg.textContent = "❌ Network error. Please try again.";
-msg.className = "text-sm mt-2 text-rose-600";
-}
-});
+
+            } else {
+                msg.textContent = "❌ Something went wrong. Please try again.";
+                msg.className = "text-sm mt-2 text-rose-600";
+            }
+        } catch (error) {
+            msg.textContent = "❌ Network error. Please try again.";
+            msg.className = "text-sm mt-2 text-rose-600";
+        }
+    });
 </script>
 
 <script>
@@ -452,6 +474,7 @@ msg.className = "text-sm mt-2 text-rose-600";
 </script>
 </body>
 </html>
+
 
 
 
