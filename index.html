@@ -65,6 +65,132 @@
             background-size: 22px 22px;
         }
     </style>
+
+
+    <style>
+            /* === QUICK THEME HOOKS ===
+               Match these two to your site palette */
+        :root{
+            --sg-brand: #3C6FF0;   /* YOUR primary brand color */
+            --sg-accent: #10B981;  /* Accent (buttons, ok states) */
+            --sg-ink:#3730a3; --sg-ink-2:#4f46e5;
+            --sg-bg:#ffffff; --sg-panel:#ffffff; --sg-muted:#eef2f7;
+            --sg-zebra:#f7f9fc; --sg-border: rgba(15,23,42,.08);
+            --sg-chip:#e8f5e9; --sg-chip-text:#1b5e20;
+            --sg-chip-pend:#fff7e6; --sg-chip-pend-text:#a15c00;
+        }
+        @media (prefers-color-scheme: dark){
+            :root{
+                --sg-ink:#e5e7eb; --sg-ink-2:#cbd5e1;
+                --sg-bg:#3730a3; --sg-panel:#312e81; --sg-muted:#312e81;
+                --sg-zebra:#11182a; --sg-border: rgba(255,255,255,.08);
+                --sg-chip:#312e81; --sg-chip-text:#9ae6b4;
+                --sg-chip-pend:#2a2416; --sg-chip-pend-text:#f7c873;
+            }
+        }
+
+        /* Layout: narrower on desktop */
+        .sg-hero{ background: linear-gradient(180deg,var(--sg-bg),rgba(60,111,240,.05)); padding: clamp(18px,3vw,28px) 16px }
+        .sg-inner{ max-width: 980px; margin: 0 auto; }
+        .sg-compact .sg-inner{ max-width: 900px; } /* slightly tighter */
+        .sg-copy h1{ font-size:clamp(1.9rem,4vw,2.4rem); line-height:1.15; margin:0 0 .5rem; color:var(--sg-ink)}
+        .sg-copy p{ color:var(--sg-ink-2); margin:0 0 .9rem }
+        .sg-badges{ display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:1rem }
+        .sg-badge{ background:var(--sg-muted); color:var(--sg-ink); padding:.4rem .6rem; border-radius:999px; font-size:.85rem }
+        .sg-cta{ display:inline-block; background:var(--sg-brand); color:#fff; text-decoration:none; padding:.75rem 1rem; border-radius:10px; font-weight:700 }
+
+        .sg-visual{
+            display:grid; gap:14px; align-items:center;
+            grid-template-columns: 200px 120px minmax(320px,1fr);
+            margin-top: 18px;
+        }
+        @media (max-width: 860px){ .sg-visual{ grid-template-columns: 1fr; } }
+
+        .sg-box{
+            background:var(--sg-panel); border:1px solid var(--sg-border); border-radius:14px;
+            box-shadow: 0 6px 20px rgba(10,10,10,.06); padding:14px;
+            min-height:118px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:6px;
+        }
+        .sg-stripe .sg-logo{
+            font-weight:900; letter-spacing:.2px; color:#fff; background:#635BFF;
+            padding:.45rem .7rem; border-radius:10px; box-shadow: inset 0 -2px 0 rgba(0,0,0,.12);
+        }
+        .sg-box small{ color:var(--sg-ink-2) }
+
+        /* Connector: more visible pulse + flow */
+        .sg-pipe{
+            position:relative; height:10px; border-radius:999px;
+            background: linear-gradient(90deg, rgba(0,0,0,.06), rgba(0,0,0,.03));
+            border:1px solid var(--sg-border);
+            overflow:hidden;
+            min-height: 56px; display:flex; align-items:center; justify-content:center;
+        }
+        .sg-flow{
+            position:absolute; inset:0;
+            background: linear-gradient(90deg, transparent, var(--sg-brand), transparent);
+            opacity:.12; animation: sg-flow 1.6s linear infinite;
+        }
+        @keyframes sg-flow{ from{ transform: translateX(-100%) } to{ transform: translateX(100%) } }
+
+        .sg-pulse{
+            width:22px; height:22px; border-radius:50%;
+            background: var(--sg-brand);
+            box-shadow:
+                    0 0 0 6px color-mix(in srgb, var(--sg-brand) 20%, transparent),
+                    0 0 28px color-mix(in srgb, var(--sg-brand) 55%, transparent);
+            animation: sg-pulse 1.4s ease-in-out infinite;
+        }
+        @keyframes sg-pulse{
+            0%{ transform: translateX(-38px) scale(.9) }
+            50%{ transform: translateX(38px) scale(1.05) }
+            100%{ transform: translateX(62px) scale(.9) }
+        }
+
+        /* Sheet */
+        .sg-sheets{ padding:0; overflow:hidden }
+        .sg-sheets-head{
+            display:flex; align-items:center; gap:.6rem; padding:.6rem .75rem;
+            border-bottom:1px solid var(--sg-border);
+            background: linear-gradient(180deg, color-mix(in srgb, var(--sg-brand) 12%, transparent), transparent);
+            width:100%;
+        }
+        .sg-traffic i{ width:8px; height:8px; border-radius:50%; display:inline-block; background:var(--sg-muted); margin-right:4px }
+        .sg-sync-pill{ margin-left:auto; background:var(--sg-muted); border-radius:999px; padding:.2rem .6rem; font-size:.82rem; color:var(--sg-ink-2) }
+
+        /* Table */
+        .sg-table{ padding:.6rem .75rem 1rem; overflow:auto; font-variant-numeric: tabular-nums }
+        .sg-row{
+            display:grid; grid-template-columns: 1.1fr 1fr 1fr 1fr .9fr;
+            gap:.6rem; align-items:center; padding:.5rem .4rem; border-radius:8px;
+        }
+        .sg-header{ font-weight:700; color:var(--sg-ink); border-bottom:1px solid var(--sg-border); margin-bottom:.25rem; padding-bottom:.6rem }
+        .sg-item{ background:var(--sg-zebra); border:1px solid var(--sg-border) }
+        .sg-item:nth-of-type(even){ background:var(--sg-panel) }
+        .sg-row > div{ color:var(--sg-ink); white-space:nowrap }
+
+        /* Anim states */
+        .sg-item{ opacity:.01; transform: translateY(8px); filter: blur(3px); transition: opacity .5s ease, transform .5s ease, filter .5s ease }
+        .sg-item.sg-in{ opacity:1; transform:none; filter:none }
+
+        /* Chips */
+        .sg-chip{ background:var(--sg-chip); color:var(--sg-chip-text); padding:.15rem .5rem; border-radius:999px; font-size:.8rem; font-weight:700; border:1px solid var(--sg-border) }
+        .sg-chip--pending{ background:var(--sg-chip-pend); color:var(--sg-chip-pend-text) }
+
+        /* Responsive columns */
+        @media (max-width: 460px){
+            .sg-row{ grid-template-columns: 1fr .95fr .95fr .95fr .9fr }
+            .sg-row > div{ font-size:.95rem }
+        }
+
+        /* Reduced motion: keep it visible but static */
+        @media (prefers-reduced-motion: reduce){
+            .sg-flow, .sg-pulse{ animation: none }
+            .sg-item{ opacity:1; transform:none; filter:none }
+        }
+    </style>
+
+
+
 </head>
 <body class="bg-mist text-ink antialiased">
 <!-- Top bar -->
@@ -100,119 +226,176 @@
     </div>
 </header>
 
-<!-- Hero -->
-<section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-grid"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center">
-            <!-- Text -->
-            <div class="order-1">
-                <span class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-brand-100 text-brand-700 ring-1 ring-brand-200">MVP live soon</span>
-                <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
-                    Single-purpose connectors that <span class="text-brand-600">do one job perfectly</span>.
-                </h1>
-                <p class="mt-3 sm:mt-4 text-base sm:text-lg text-black/70 max-w-xl">
-                    Start with <strong>Stripe → Google Sheets Payout Tracker</strong>: your payouts, fees, and net automatically synced into a clean, HMRC-friendly sheet. No Zapier. No scripts. Just switch on and go.
-                </p>
 
-                <!-- Buttons: full width on mobile -->
-                <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3">
-                    <a href="#waitlist" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 text-white font-medium shadow-soft hover:bg-brand-700 w-full sm:w-auto">
-                        Join the waitlist
-                    </a>
-                    <a href="#live-demo" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white ring-1 ring-black/10 hover:ring-black/20 w-full sm:w-auto">
-                        See the template sheet
-                    </a>
-                </div>
+<section class="sg-hero sg-compact">
+    <div class="sg-inner">
+        <div class="sg-copy">
+            <h1>Stripe Payouts, Simplified</h1>
+            <p>No more CSVs. Your fees, gross, and net — always synced into Google Sheets, HMRC-ready.</p>
+            <div class="sg-badges">
+                <span class="sg-badge">Auto-sync daily</span>
+                <span class="sg-badge">No scripts</span>
+                <span class="sg-badge">Accountant-friendly</span>
+            </div>
+            <a href="#signup" class="sg-cta">Start Free</a>
+        </div>
 
-                <!-- Trust bullets: wrap on small -->
-                <div class="mt-5 sm:mt-6 flex flex-wrap items-center gap-4 text-sm text-black/60">
-                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Read-only Stripe scopes</div>
-                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Data lands in your Drive</div>
-                </div>
+        <div class="sg-visual" aria-label="Stripe data flowing into Google Sheets automatically">
+            <!-- Left: Stripe -->
+            <div class="sg-box sg-stripe">
+                <div class="sg-logo">Stripe</div>
+                <small>Source</small>
             </div>
 
-            <!-- Mock (moved below on mobile, contained) -->
-            <div class="order-2">
-                <div class="relative rounded-2xl bg-white shadow-soft ring-1 ring-black/5 overflow-hidden">
-                    <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-black/5 flex items-center gap-3 text-sm">
-                        <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                        <span class="ml-1 sm:ml-2 text-black/60 truncate">Stripe → Google Sheet</span>
-                    </div>
-                    <div class="p-4 sm:p-6">
-                        <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
-                            <div class="bg-mist rounded-xl p-3 sm:p-4 ring-1 ring-black/5">
-                                <div class="text-sm font-medium mb-1.5 sm:mb-2">Source: Stripe</div>
-                                <ul class="text-sm text-black/70 space-y-1.5">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Payouts & fees</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Balance transactions</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Webhook-driven</li>
-                                </ul>
-                            </div>
-                            <div class="bg-mist rounded-xl p-3 sm:p-4 ring-1 ring-black/5">
-                                <div class="text-sm font-medium mb-1.5 sm:mb-2">Destination: Google Sheets</div>
-                                <ul class="text-sm text-black/70 space-y-1.5">
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Clean columns & totals</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Idempotent upserts</li>
-                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Lives in your Drive</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Responsive table: horizontal scroll + hide 1 col on XS -->
-                        <div class="mt-4 sm:mt-6">
-                            <div class="text-xs uppercase tracking-wide text-black/50 mb-2">Preview</div>
-                            <div class="rounded-xl ring-1 ring-black/5 overflow-x-auto -mx-2 sm:mx-0">
-                                <table class="min-w-[560px] sm:min-w-full text-sm">
-                                    <thead class="bg-mist text-black/70">
-                                    <tr>
-                                        <th class="text-left px-4 py-2">Date</th>
-                                        <th class="text-left px-4 py-2">Payout ID</th>
-                                        <th class="text-right px-4 py-2">Gross</th>
-                                        <th class="text-right px-4 py-2 hidden xs:table-cell sm:table-cell">Fees</th>
-                                        <th class="text-right px-4 py-2">Net</th>
-                                        <th class="text-left px-4 py-2">Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="border-t border-black/5">
-                                        <td class="px-4 py-2">2025-09-06</td>
-                                        <td class="px-4 py-2">po_1XXXX</td>
-                                        <td class="px-4 py-2 text-right">£1,245.80</td>
-                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£38.10</td>
-                                        <td class="px-4 py-2 text-right">£1,207.70</td>
-                                        <td class="px-4 py-2">Paid</td>
-                                    </tr>
-                                    <tr class="border-t border-black/5">
-                                        <td class="px-4 py-2">2025-09-04</td>
-                                        <td class="px-4 py-2">po_1YYYY</td>
-                                        <td class="px-4 py-2 text-right">£842.10</td>
-                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£25.30</td>
-                                        <td class="px-4 py-2 text-right">£816.80</td>
-                                        <td class="px-4 py-2">Paid</td>
-                                    </tr>
-                                    <tr class="border-t border-black/5">
-                                        <td class="px-4 py-2">2025-09-01</td>
-                                        <td class="px-4 py-2">po_1ZZZZ</td>
-                                        <td class="px-4 py-2 text-right">£2,014.50</td>
-                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£61.20</td>
-                                        <td class="px-4 py-2 text-right">£1,953.30</td>
-                                        <td class="px-4 py-2">Paid</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            <!-- Middle: connector -->
+            <div class="sg-pipe" aria-hidden="true">
+                <div class="sg-flow"></div>
+                <div class="sg-pulse"></div>
             </div>
 
+            <!-- Right: Sheet -->
+            <div class="sg-box sg-sheets">
+                <div class="sg-sheets-head">
+                    <div class="sg-traffic">
+                        <i></i><i></i><i></i>
+                    </div>
+                    <span>Payout Tracker</span>
+                    <span class="sg-sync-pill">⟳ Syncing…</span>
+                </div>
+
+                <div class="sg-table" role="table" aria-label="Payouts">
+                    <div class="sg-row sg-header" role="row">
+                        <div role="columnheader">Date</div>
+                        <div role="columnheader">Gross</div>
+                        <div role="columnheader">Fees</div>
+                        <div role="columnheader">Net</div>
+                        <div role="columnheader">Status</div>
+                    </div>
+
+                    <!-- 4 data rows; JS will update their text each cycle -->
+                    <div class="sg-row sg-item" role="row"><div></div><div></div><div></div><div></div><div><span class="sg-chip">Paid</span></div></div>
+                    <div class="sg-row sg-item" role="row"><div></div><div></div><div></div><div></div><div><span class="sg-chip">Paid</span></div></div>
+                    <div class="sg-row sg-item" role="row"><div></div><div></div><div></div><div></div><div><span class="sg-chip sg-chip--pending">Pending</span></div></div>
+                    <div class="sg-row sg-item" role="row"><div></div><div></div><div></div><div></div><div><span class="sg-chip">Paid</span></div></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Hero -->
+<!--<section class="relative overflow-hidden">-->
+<!--    <div class="absolute inset-0 bg-grid"></div>-->
+<!--    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">-->
+<!--        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 items-center">-->
+<!--            &lt;!&ndash; Text &ndash;&gt;-->
+<!--            <div class="order-1">-->
+<!--                <span class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-brand-100 text-brand-700 ring-1 ring-brand-200">MVP live soon</span>-->
+<!--                <h1 class="mt-3 text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">-->
+<!--                    Single-purpose connectors that <span class="text-brand-600">do one job perfectly</span>.-->
+<!--                </h1>-->
+<!--                <p class="mt-3 sm:mt-4 text-base sm:text-lg text-black/70 max-w-xl">-->
+<!--                    Start with <strong>Stripe → Google Sheets Payout Tracker</strong>: your payouts, fees, and net automatically synced into a clean, HMRC-friendly sheet. No Zapier. No scripts. Just switch on and go.-->
+<!--                </p>-->
+
+<!--                &lt;!&ndash; Buttons: full width on mobile &ndash;&gt;-->
+<!--                <div class="mt-5 sm:mt-6 flex flex-col sm:flex-row gap-3">-->
+<!--                    <a href="#waitlist" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-600 text-white font-medium shadow-soft hover:bg-brand-700 w-full sm:w-auto">-->
+<!--                        Join the waitlist-->
+<!--                    </a>-->
+<!--                    <a href="#live-demo" class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white ring-1 ring-black/10 hover:ring-black/20 w-full sm:w-auto">-->
+<!--                        See the template sheet-->
+<!--                    </a>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Trust bullets: wrap on small &ndash;&gt;-->
+<!--                <div class="mt-5 sm:mt-6 flex flex-wrap items-center gap-4 text-sm text-black/60">-->
+<!--                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Read-only Stripe scopes</div>-->
+<!--                    <div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Data lands in your Drive</div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            &lt;!&ndash; Mock (moved below on mobile, contained) &ndash;&gt;-->
+<!--            <div class="order-2">-->
+<!--                <div class="relative rounded-2xl bg-white shadow-soft ring-1 ring-black/5 overflow-hidden">-->
+<!--                    <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-black/5 flex items-center gap-3 text-sm">-->
+<!--                        <span class="w-2 h-2 rounded-full bg-rose-400"></span>-->
+<!--                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>-->
+<!--                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>-->
+<!--                        <span class="ml-1 sm:ml-2 text-black/60 truncate">Stripe → Google Sheet</span>-->
+<!--                    </div>-->
+<!--                    <div class="p-4 sm:p-6">-->
+<!--                        <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">-->
+<!--                            <div class="bg-mist rounded-xl p-3 sm:p-4 ring-1 ring-black/5">-->
+<!--                                <div class="text-sm font-medium mb-1.5 sm:mb-2">Source: Stripe</div>-->
+<!--                                <ul class="text-sm text-black/70 space-y-1.5">-->
+<!--                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Payouts & fees</li>-->
+<!--                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Balance transactions</li>-->
+<!--                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Webhook-driven</li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                            <div class="bg-mist rounded-xl p-3 sm:p-4 ring-1 ring-black/5">-->
+<!--                                <div class="text-sm font-medium mb-1.5 sm:mb-2">Destination: Google Sheets</div>-->
+<!--                                <ul class="text-sm text-black/70 space-y-1.5">-->
+<!--                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Clean columns & totals</li>-->
+<!--                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Idempotent upserts</li>-->
+<!--                                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Lives in your Drive</li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; Responsive table: horizontal scroll + hide 1 col on XS &ndash;&gt;-->
+<!--                        <div class="mt-4 sm:mt-6">-->
+<!--                            <div class="text-xs uppercase tracking-wide text-black/50 mb-2">Preview</div>-->
+<!--                            <div class="rounded-xl ring-1 ring-black/5 overflow-x-auto -mx-2 sm:mx-0">-->
+<!--                                <table class="min-w-[560px] sm:min-w-full text-sm">-->
+<!--                                    <thead class="bg-mist text-black/70">-->
+<!--                                    <tr>-->
+<!--                                        <th class="text-left px-4 py-2">Date</th>-->
+<!--                                        <th class="text-left px-4 py-2">Payout ID</th>-->
+<!--                                        <th class="text-right px-4 py-2">Gross</th>-->
+<!--                                        <th class="text-right px-4 py-2 hidden xs:table-cell sm:table-cell">Fees</th>-->
+<!--                                        <th class="text-right px-4 py-2">Net</th>-->
+<!--                                        <th class="text-left px-4 py-2">Status</th>-->
+<!--                                    </tr>-->
+<!--                                    </thead>-->
+<!--                                    <tbody>-->
+<!--                                    <tr class="border-t border-black/5">-->
+<!--                                        <td class="px-4 py-2">2025-09-06</td>-->
+<!--                                        <td class="px-4 py-2">po_1XXXX</td>-->
+<!--                                        <td class="px-4 py-2 text-right">£1,245.80</td>-->
+<!--                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£38.10</td>-->
+<!--                                        <td class="px-4 py-2 text-right">£1,207.70</td>-->
+<!--                                        <td class="px-4 py-2">Paid</td>-->
+<!--                                    </tr>-->
+<!--                                    <tr class="border-t border-black/5">-->
+<!--                                        <td class="px-4 py-2">2025-09-04</td>-->
+<!--                                        <td class="px-4 py-2">po_1YYYY</td>-->
+<!--                                        <td class="px-4 py-2 text-right">£842.10</td>-->
+<!--                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£25.30</td>-->
+<!--                                        <td class="px-4 py-2 text-right">£816.80</td>-->
+<!--                                        <td class="px-4 py-2">Paid</td>-->
+<!--                                    </tr>-->
+<!--                                    <tr class="border-t border-black/5">-->
+<!--                                        <td class="px-4 py-2">2025-09-01</td>-->
+<!--                                        <td class="px-4 py-2">po_1ZZZZ</td>-->
+<!--                                        <td class="px-4 py-2 text-right">£2,014.50</td>-->
+<!--                                        <td class="px-4 py-2 text-right hidden xs:table-cell sm:table-cell">£61.20</td>-->
+<!--                                        <td class="px-4 py-2 text-right">£1,953.30</td>-->
+<!--                                        <td class="px-4 py-2">Paid</td>-->
+<!--                                    </tr>-->
+<!--                                    </tbody>-->
+<!--                                </table>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 
 <!-- How it works -->
@@ -472,6 +655,81 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
+
+<script>
+    // Live loop: each cycle resets rows, plays the "sync", swaps data, repeats.
+    (function(){
+        const rows = Array.from(document.querySelectorAll('.sg-item'));
+        const pill = document.querySelector('.sg-sync-pill');
+
+        // Two example datasets; replace with your own samples
+        const sets = [
+            [
+                ['01 Sep','£1,200.00','-£36.00','£1,164.00','Paid'],
+                ['02 Sep','£980.00','-£29.40','£950.60','Paid'],
+                ['03 Sep','£1,450.00','-£43.50','£1,406.50','Pending'],
+                ['04 Sep','£1,035.00','-£31.05','£1,003.95','Paid'],
+            ],
+            [
+                ['05 Sep','£1,310.00','-£39.30','£1,270.70','Paid'],
+                ['06 Sep','£890.00','-£26.70','£863.30','Paid'],
+                ['07 Sep','£1,520.00','-£45.60','£1,474.40','Pending'],
+                ['08 Sep','£1,080.00','-£32.40','£1,047.60','Paid'],
+            ]
+        ];
+
+        let idx = 0;
+        const DUR_STAGGER = 350;   // ms between row ins
+        const HOLD_AFTER_SYNC = 1400; // ms to show "Synced" before reset
+        const FADE_OUT = 260;      // ms fade rows out
+
+        function setRow(r, data){
+            const cells = r.querySelectorAll(':scope > div');
+            cells[0].textContent = data[0];
+            cells[1].textContent = data[1];
+            cells[2].textContent = data[2];
+            cells[3].textContent = data[3];
+            const chip = cells[4].querySelector('.sg-chip');
+            const isPending = data[4].toLowerCase()==='pending';
+            chip.textContent = data[4];
+            chip.classList.toggle('sg-chip--pending', isPending);
+        }
+
+        function applyDataset(i){
+            rows.forEach((r, n) => setRow(r, sets[i][n]));
+        }
+
+        function animateIn(){
+            rows.forEach((r, n) => {
+                r.style.transitionDelay = (n*DUR_STAGGER)/1000 + 's';
+                // ensure starting state
+                r.classList.remove('sg-in');
+                // next frame → add class for transition
+                requestAnimationFrame(()=> requestAnimationFrame(()=> r.classList.add('sg-in')));
+            });
+            // After last row animates in, flip pill to "Synced"
+            const totalIn = (rows.length-1)*DUR_STAGGER + 600;
+            setTimeout(()=> pill.textContent = '✓ Synced', totalIn);
+            // Then hold, fade out rows, swap dataset, and restart
+            setTimeout(()=>{
+                pill.textContent = '⟳ Syncing…';
+                rows.forEach(r => { r.style.transitionDelay = '0s'; r.classList.remove('sg-in'); });
+                setTimeout(()=>{
+                    idx = (idx+1) % sets.length;
+                    applyDataset(idx);
+                    animateIn();
+                }, FADE_OUT);
+            }, (rows.length-1)*DUR_STAGGER + 600 + HOLD_AFTER_SYNC);
+        }
+
+        // Init
+        applyDataset(idx);
+        animateIn();
+    })();
+</script>
+
+
 </body>
 </html>
 
