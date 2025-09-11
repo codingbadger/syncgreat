@@ -208,7 +208,8 @@
             <a href="#features" class="hover:text-brand-600">Features</a>
             <a href="#pricing" class="hover:text-brand-600">Pricing</a>
             <a href="#faq" class="hover:text-brand-600">FAQ</a>
-            <a href="#waitlist" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 shadow-soft">Join waitlist</a>
+            <a href="#waitlist" class="px-4 py-2 rounded-xl bg-brand-600 text-white hover:bg-brand-700 shadow-soft"
+               onclick="gtag('event','click',{event_category:'cta',event_label:'hero_join_waitlist'});">Join waitlist</a>
         </nav>
         <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-black/5" aria-label="Open menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -221,7 +222,9 @@
             <a href="#features" class="block py-2">Features</a>
             <a href="#pricing" class="block py-2">Pricing</a>
             <a href="#faq" class="block py-2">FAQ</a>
-            <a href="#waitlist" class="block py-2 font-medium text-white bg-brand-600 rounded-xl text-center">Join waitlist</a>
+            <a href="#waitlist" class="block py-2 font-medium text-white bg-brand-600 rounded-xl text-center"
+            onclick="gtag('event','click',{event_category:'cta',event_label:'hero_join_waitlist'});"
+            >Join waitlist</a>
         </div>
     </div>
 </header>
@@ -230,14 +233,14 @@
 <section class="sg-hero sg-compact">
     <div class="sg-inner">
         <div class="sg-copy">
-            <h1>Stripe Payouts, Simplified</h1>
-            <p>No more CSVs. Your fees, gross, and net — always synced into Google Sheets, HMRC-ready.</p>
+            <h1>Stripe payouts → Google Sheets, automatically.</h1>
+            <p>Gross, fees, net, and status synced daily. Accountant friendly. No Zapier.</p>
             <div class="sg-badges">
                 <span class="sg-badge">Auto-sync daily</span>
                 <span class="sg-badge">No scripts</span>
                 <span class="sg-badge">Accountant-friendly</span>
             </div>
-            <a href="#signup" class="sg-cta">Start Free</a>
+            <a href="#waitlist" class="sg-cta" onclick="gtag('event','click',{event_category:'cta',event_label:'hero_start_free'});">Start Free</a>
         </div>
 
         <div class="sg-visual" aria-label="Stripe data flowing into Google Sheets automatically">
@@ -446,7 +449,7 @@
                 <p class="text-sm text-black/70 mt-1">We only request <code>drive.file</code>—files live in your Google Drive, not ours.</p>
             </div>
             <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
-                <h3 class="font-semibold">HMRC‑friendly</h3>
+                <h3 class="font-semibold">Accountant‑friendly</h3>
                 <p class="text-sm text-black/70 mt-1">Columns for gross, fees, net, payout date, status, and running totals.</p>
             </div>
             <div class="p-6 rounded-2xl ring-1 ring-black/5 shadow-soft">
@@ -477,8 +480,8 @@
             <h2 class="text-3xl font-bold">Pricing that scales with you</h2>
             <p class="mt-3 text-black/70">Start free. Upgrade for more connections, faster syncs, and higher row limits.</p>
         </div>
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
-            <div class="rounded-2xl ring-1 ring-black/5 p-6 bg-mist">
+        <div class="mt-10 grid md:grid-cols-3 gap-6 ">
+            <div class="rounded-2xl ring-2 ring-brand-600 p-6 shadow-soft bg-mist">
                 <h3 class="text-lg font-semibold">Free</h3>
                 <div class="mt-2 text-3xl font-extrabold">£0</div>
                 <p class="text-sm text-black/60">forever</p>
@@ -488,19 +491,31 @@
                     <li>• Up to 1,000 new rows / month</li>
                     <li>• Email support</li>
                 </ul>
-                <a href="#waitlist" class="mt-6 inline-flex px-4 py-2 rounded-lg bg-white ring-1 ring-black/10 hover:ring-black/20">Join waitlist</a>
+                <a href="#waitlist"
+                   onclick="gtag('event','click',{event_category:'cta',event_label:'pricing_join_free'});"
+                   class="mt-6 inline-flex px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700">Join waitlist</a>
             </div>
-            <div class="rounded-2xl ring-2 ring-brand-600 p-6 bg-white shadow-soft">
+            <div class="rounded-2xl  ring-1 ring-black/5 p-6">
                 <h3 class="text-lg font-semibold">Pro</h3>
-                <div class="mt-2 text-3xl font-extrabold">£15</div>
+                <div class="mt-2 text-3xl font-extrabold"  id="pro-price">£15 </div>
                 <p class="text-sm text-black/60">per month</p>
+
+                <div class="mt-2 text-xs text-black/50">
+                    <span>Currency:</span>
+                    <button type="button" class="currency-btn" data-currency="GBP">GBP</button> |
+                    <button type="button" class="currency-btn" data-currency="USD">USD</button> |
+                    <button type="button" class="currency-btn" data-currency="EUR">EUR</button>
+                </div>
+                
                 <ul class="mt-4 text-sm space-y-2">
                     <li>• Up to 5 connections</li>
                     <li>• Hourly sync</li>
                     <li>• 50k new rows / month</li>
                     <li>• Priority support</li>
                 </ul>
-                <a href="#waitlist" class="mt-6 inline-flex px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700">Join waitlist</a>
+                <a href="#waitlist"
+                   onclick="gtag('event','click',{event_category:'cta',event_label:'pricing_join_pro'});"
+                   class="mt-6 inline-flex px-4 py-2 rounded-lg  bg-white ring-1 ring-black/10 hover:ring-black/20 ">Join waitlist</a>
             </div>
             <div class="rounded-2xl ring-1 ring-black/5 p-6 bg-white">
                 <h3 class="text-lg font-semibold">Business</h3>
@@ -512,7 +527,9 @@
                     <li>• SSO & audit logs</li>
                     <li>• Onboarding help</li>
                 </ul>
-                <a href="#waitlist" class="mt-6 inline-flex px-4 py-2 rounded-lg bg-white ring-1 ring-black/10 hover:ring-black/20">Join waitlist</a>
+                <a href="#waitlist"
+                   onclick="gtag('event','click',{event_category:'cta',event_label:'pricing_join_enterprise'});"
+                   class="mt-6 inline-flex px-4 py-2 rounded-lg bg-white ring-1 ring-black/10 hover:ring-black/20">Join waitlist</a>
             </div>
         </div>
     </div>
@@ -525,7 +542,7 @@
         <div class="mt-10 grid md:grid-cols-2 gap-6">
             <div class="bg-white rounded-2xl p-6 ring-1 ring-black/5 shadow-soft">
                 <h3 class="font-semibold">Do you store my Stripe data?</h3>
-                <p class="text-sm text-black/70 mt-1">Minimal metadata for run logs and dedupe only. Payout line items go straight from Stripe → your Google Sheet. Tokens are encrypted. You can revoke access anytime.</p>
+                <p class="text-sm text-black/70 mt-1">Absolutely not. Only minimal metadata for run logs and dedupe only. Payout line items go straight from Stripe → your Google Sheet. Tokens are encrypted. You can revoke access anytime.</p>
             </div>
             <div class="bg-white rounded-2xl p-6 ring-1 ring-black/5 shadow-soft">
                 <h3 class="font-semibold">Do I need Zapier?</h3>
@@ -551,22 +568,30 @@
                 <div class="md:max-w-sm">
                     <h2 class="text-2xl sm:text-3xl font-bold">Get early access</h2>
                     <p class="text-black/70 mt-1 sm:mt-2 text-sm sm:text-base">
+                        We are launching soon!
+                        </p>
+                    <p class="text-black/70 mt-1 sm:mt-2 text-sm sm:text-base">
                         Join the waitlist and we’ll send the template + invite as soon as we open the doors.
+                        
+                    </p>
+                    <p class="text-black/70 mt-1 sm:mt-2 text-sm sm:text-base">
+                        Early adopters have the chance to grab some discounted plans!
                     </p>
                 </div>
 
                 <!-- Form: stacked on mobile, side-by-side on sm+ -->
                 <div class="flex-1 w-full">
                     <form id="waitlistForm" action="https://formspree.io/f/mzzayweo" method="POST" class="mt-2 sm:mt-0 flex flex-col gap-3 w-full">
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <input type="text" name="first_name" required placeholder="First name" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
-                            <input type="text" name="last_name" required placeholder="Last name" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
-                        </div>
+             
                         <div class="flex flex-col sm:flex-row gap-3">
                             <input type="email" name="email" required placeholder="you@company.com" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
                             <button type="submit" class="px-5 py-3 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700 w-full sm:w-auto">
                                 Join
                             </button>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="text" name="first_name" placeholder="First name (optional)" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
+                            <input type="text" name="last_name" placeholder="Last name (optional)" class="flex-1 px-4 py-3 rounded-xl ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-mist" />
                         </div>
                     </form>
                     <p id="formMsg" class="text-sm mt-2"></p>
@@ -728,6 +753,41 @@
         animateIn();
     })();
 </script>
+
+<script>
+    // Simple currency table (hard-code for now, Stripe will handle exact billing later)
+    const prices = {
+        Pro: { GBP: 15, USD: 19, EUR: 18 }
+    };
+
+    function formatPrice(amount, currency) {
+        return new Intl.NumberFormat(undefined, {
+            style: 'currency',
+            currency: currency
+        }).format(amount);
+    }
+
+    function setCurrency(currency) {
+        const proPriceEl = document.getElementById('pro-price');
+        proPriceEl.textContent = formatPrice(prices.Pro[currency], currency);
+    }
+
+    // Detect default
+    const locale = navigator.language;
+    let defaultCurrency = "GBP";
+    if (locale.includes("US")) defaultCurrency = "USD";
+    else if (locale.match(/^(de|fr|es|it|nl|pt|eu|fi|se|pl)/i)) defaultCurrency = "EUR";
+
+    setCurrency(defaultCurrency);
+
+    // Handle toggle clicks
+    document.querySelectorAll(".currency-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            setCurrency(btn.dataset.currency);
+        });
+    });
+</script>
+
 
 
 </body>
